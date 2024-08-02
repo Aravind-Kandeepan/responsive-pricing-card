@@ -1,198 +1,221 @@
 *,
 ::before,
 ::after {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --card-basic-clr: rgb(202, 202, 12);
+  --card-premium-clr: #784ebb;
+  --card-ultimate-clr: #35c270;
+}
+
 body {
   display: flex;
-  width: 100%;
-  height: 100%;
-  background-color: #6179f1;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  min-height: 100vh;
   padding: 20px;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-color: #6179f1;
 }
+
 .wrapper {
-  display: flex;
-  max-width: 1400px;
+  max-width: 1090px;
   width: 100%;
-  height: 600px;
   margin: auto;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-}
-.card {
   display: flex;
-  height: 550px;
-  width: 350px;
-  background-color: white;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  gap: 50px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.wrapper .table {
+  background-color: #ffff;
+  width: calc(33% - 20px);
+  padding: 30px 30px;
   position: relative;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.ribbon {
-  width: 190px;
-  height: 150px;
-  overflow: hidden;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  top: -5px;
-  left: -8px;
-  /* background-color: aqua; */
-}
-
-.ribbon span {
-  position: absolute;
-  top: 30px;
-  left: -53px;
-  display: block;
-  width: 225px;
-  padding: 15px 0;
-  background-color: #a26bfa;
-  color: white;
-  text-align: center;
-  transform: rotate(-45deg);
-  box-shadow: 0 3px 10px -4px rgba(0, 0, 0, 1);
-  font-size: 1.1rem;
-  font-weight: bolder;
-}
-
-.price-box {
+.table .prize-section {
   display: flex;
   justify-content: center;
-  padding-top: 30px;
 }
-.price-area {
+
+.table .prize-area {
   height: 120px;
   width: 120px;
-  background: yellow;
   border-radius: 50%;
   padding: 2px;
 }
-.inner-area {
+
+.prize-area .inner-area {
   height: 100%;
   width: 100%;
-  background: yellow;
   border-radius: 50%;
-  border: solid 3px white;
+  border: 3px solid #ffff;
+  line-height: 117px;
   text-align: center;
-  align-content: center;
-  color: white;
-}
-.inner-area .text {
-  font-size: 25px;
-  font-weight: bold;
-  transform: translateY(2.1rem);
-}
-.price {
-  font-size: 45px;
-  font-weight: bold;
-}
-.package-name {
-  width: 80%;
-  height: 3px;
-  background: yellow;
+  color: #ffff;
   position: relative;
 }
-.package-name::before {
+
+.prize-area .inner-area .text {
+  font-size: 25px;
+  font-weight: 400;
   position: absolute;
-  content: "basic";
-  left: 50%;
+  top: -10px;
+  left: 17px;
+}
+
+.prize-area .inner-area .prize {
+  font-size: 45px;
+  font-weight: 500;
+  margin-left: 16px;
+}
+
+.table .package-name {
+  width: 100%;
+  height: 2px;
+  margin: 35px 0;
+  position: relative;
+}
+
+.table .package-name::before {
+  content: " ";
+  position: absolute;
   top: 50%;
-  font-size: 35px;
-  font-weight: bold;
-  background: white;
-  padding: 15px;
+  left: 50%;
+  font-size: 25px;
+  font-weight: 500;
+  background-color: #ffff;
+  padding: 0 15px;
   transform: translate(-50%, -50%);
 }
-.features {
+
+.table .features li {
+  margin-bottom: 15px;
+  list-style: none;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  font-size: 20px;
-  flex-shrink: 1;
+  justify-content: space-between;
 }
-button {
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 20px;
-  background-color: white;
-  border-radius: 25px;
-  width: 200px;
+
+.features li .list-name {
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.features li .icon {
+  font-size: 15px;
+}
+
+.features li .icon .check {
+  color: rgb(13, 214, 57);
+}
+
+.features li .icon .cross {
+  color: red;
+}
+
+.table .button {
+  width: 100%;
+  display: flex;
+  margin-top: 35px;
+  justify-content: center;
+}
+
+.table .button button {
+  width: 80%;
   height: 50px;
-  outline: none;
+  color: #ffff;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
-button:hover {
+
+.table button:hover {
   border-radius: 5px;
 }
-.basic .price-area,
+
+/* Basic card */
+
+.basic .prize-area,
 .basic .inner-area {
-  background-color: yellow;
-}
-.basic button {
-  background: white;
-  color: yellow;
-  border: 2px solid yellow;
+  background-color: var(--card-basic-clr);
 }
 
-.basic button:hover {
-  background-color: yellow;
-  color: white;
-  cursor: pointer;
+.basic .button button {
+  border: 2px solid var(--card-basic-clr);
+  background-color: #ffff;
+  color: var(--card-basic-clr);
 }
 
-.premium .price-area,
-.premium .inner-area,
-.premium button {
-  background: #a26bfa;
-}
-.premium button {
-  color: white;
-  border: 2px solid#a26bfa;
-}
-.ultimate .price-area,
-.ultimate .inner-area {
-  background-color: #43ef8b;
-}
-.ultimate button {
-  background: white;
-  color: #43ef8b;
-  border: 2px solid #43ef8b;
-}
-
-.ultimate button:hover {
-  background-color: #43ef8b;
-  color: white;
-  cursor: pointer;
-}
 .basic .package-name {
-  background: yellow;
+  background-color: var(--card-basic-clr);
 }
-.premium .package-name {
-  background: #a26bfa;
-}
-.ultimate .package-name {
-  background: #43ef8b;
-}
+
 .basic .package-name::before {
   content: "Basic";
 }
+
+.basic .button button:hover {
+  background-color: var(--card-basic-clr);
+  color: #ffff;
+}
+
+/* premium */
+
+.premium .prize-area,
+.premium .inner-area {
+  background-color: var(--card-premium-clr);
+}
+
+.premium .button button {
+  border: 2px solid var(--card-premium-clr);
+  background-color: #ffff;
+  color: var(--card-premium-clr);
+}
+
+.premium .package-name {
+  background-color: var(--card-premium-clr);
+}
+
 .premium .package-name::before {
   content: "Premium";
 }
+
+.premium .button button:hover {
+  background-color: var(--card-premium-clr);
+  color: #ffff;
+}
+
+/* ultimate */
+
+.ultimate .prize-area,
+.ultimate .inner-area {
+  background-color: var(--card-ultimate-clr);
+}
+
+.ultimate .button button {
+  border: 2px solid var(--card-ultimate-clr);
+  background-color: #ffff;
+  color: var(--card-ultimate-clr);
+}
+
+.ultimate .package-name {
+  background-color: var(--card-ultimate-clr);
+}
+
 .ultimate .package-name::before {
-  content: "Ultimate";
+  content: "Premium";
+}
+
+.ultimate .button button:hover {
+  background-color: var(--card-ultimate-clr);
+  color: #ffff;
 }
