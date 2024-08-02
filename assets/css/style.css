@@ -212,7 +212,7 @@ body {
 }
 
 .ultimate .package-name::before {
-  content: "Premium";
+  content: "Ultimate";
 }
 
 .ultimate .button button:hover {
