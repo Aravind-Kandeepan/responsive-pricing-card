@@ -110,12 +110,14 @@ body {
   font-size: 15px;
 }
 
-.features li .icon .check {
+.features li .check {
   color: rgb(13, 214, 57);
+  font-size: 20px;
 }
 
-.features li .icon .cross {
+.features li .cross {
   color: red;
+  font-size: 20px;
 }
 
 .table .button {
@@ -218,4 +220,64 @@ body {
 .ultimate .button button:hover {
   background-color: var(--card-ultimate-clr);
   color: #ffff;
+}
+
+/* ribbon */
+
+.table .ribbon {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: -10px;
+  left: -10px;
+  overflow: hidden;
+}
+
+.table .ribbon::before,
+.table .ribbon::after {
+  position: absolute;
+  content: " ";
+  z-index: -1;
+  display: block;
+  border: 7px solid var(--card-premium-clr);
+  border-top: transparent;
+  border-left: transparent;
+}
+
+.table .ribbon::before {
+  top: 0px;
+  right: 15px;
+}
+
+.table .ribbon::after {
+  bottom: 15px;
+  left: 0px;
+}
+
+.table .ribbon span {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  transform: rotate(-45deg);
+  width: 200px;
+  background-color: var(--card-premium-clr);
+  padding: 10px 0;
+  color: #ffff;
+  text-align: center;
+  font-size: 17px;
+  text-transform: uppercase;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 1020px) {
+  .wrapper .table {
+    width: calc(50% - 20px);
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 698px) {
+  .wrapper .table {
+    width: 100%;
+  }
 }
